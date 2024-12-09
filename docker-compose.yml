@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    ports:
+      - "27017:27017" # Map the MongoDB port to the host
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin # Replace with your username
+      MONGO_INITDB_ROOT_PASSWORD: pass123 # Replace with your password
+    volumes:
+      - mongo-data:/data/db # Persist data across container restarts
+
+volumes:
+  mongo-data:
